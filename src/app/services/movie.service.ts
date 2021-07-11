@@ -30,4 +30,13 @@ export class MovieService {
     }
     return this.http.put(this.apiMoviesUrl,movie,httpOptions);
   }
+
+  add(movie:Movie):Observable<Movie>{
+    return this.http.post<Movie>(this.apiMoviesUrl,movie);
+  }
+  
+  delete(movie:Movie):Observable<Movie>{
+    return this.http.delete<Movie>(this.apiMoviesUrl+'/'+movie.id);
+  }
+
 }
